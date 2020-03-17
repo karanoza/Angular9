@@ -1,0 +1,42 @@
+<div class="row">
+  <ul>
+    <li *ngFor="let mobPart of mobParts">
+      <div class="col s12 m4">
+        <div class="card blue-grey darken-1">
+          <div class="card-content white-text">
+            <div [style.color]="mobPart.prodNameColor">
+              Mobile Part Name :
+              <b
+                ><i>{{ mobPart.name }}</i></b
+              >
+            </div>
+            <p>
+              Mobile. Part ID : <b>{{ mobPart.id }}</b>
+            </p>
+
+            <div>
+              Description : <q>{{ mobPart.description }}</q>
+            </div>
+            <ng-container
+              *ngIf="mobPart.inStock != 0; then stockVal; else outOfStock"
+            >
+            </ng-container>
+
+            <ng-template #stockVal>
+              Last <mark>{{ mobPart.inStock }}</mark> Parts Available in stock
+              now...
+            </ng-template>
+
+            <ng-template #outOfStock>
+              Out Of Stock
+            </ng-template>
+          </div>
+          <div class="card-action">
+            <a href="#">This is a link</a>
+            <a href="#">This is a link</a>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

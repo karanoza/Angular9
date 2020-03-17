@@ -1,0 +1,50 @@
+<div class="row">
+  <ul>
+    <li *ngFor="let mobPart of mobParts">
+      <div class="col s12 m4">
+        <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="../../../assets/img/office.jpg" />
+          </div>
+          <div class="card-content">
+            <div [style.color]="mobPart.prodNameColor">
+              Mobile Part Name :
+              <b
+                ><i>{{ mobPart.name }}</i></b
+              >
+            </div>
+            <p>
+              Mobile. Part ID : <b>{{ mobPart.id }}</b>
+            </p>
+
+            <div>
+              Description : <q>{{ mobPart.description }}</q>
+            </div>
+            <ng-container
+              *ngIf="mobPart.inStock != 0; then stockVal; else outOfStock"
+            >
+            </ng-container>
+
+            <ng-template #stockVal>
+              Last <mark>{{ mobPart.inStock }}</mark> Parts Available in stock
+              now...
+            </ng-template>
+
+            <ng-template #outOfStock>
+              Out Of Stock
+            </ng-template>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"
+              >Card Title<i class="material-icons right">close</i></span
+            >
+            <p>
+              Here is some more information about this product that is only
+              revealed once clicked on.
+            </p>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
