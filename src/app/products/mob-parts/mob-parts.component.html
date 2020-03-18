@@ -2,10 +2,21 @@
   <ul>
     <li *ngFor="let mobPart of mobParts">
       <div class="col s12 m4">
-        <h3 class="header">Digital World</h3>
+        <h3 class="header">{{ mobPart.header }}</h3>
         <div class="card">
           <div class="card-image">
-            <img src="../assets/img/sample-1.jpg" />
+            <div *ngIf="mobPart.name === 'iPhone'">
+              <img
+                src="../../../assets/img/iphone2.jpg"
+                style="height:272px;"
+              />
+            </div>
+            <div *ngIf="mobPart.name === 'OnePlus'">
+              <img src="../../../assets/img/oneplus-7-pro.jpg" />
+            </div>
+            <div *ngIf="mobPart.name === 'Mi'">
+              <img src="../../../assets/img/xiaomi.jpg" />
+            </div>
             <span class="card-title">{{ mobPart.name }} </span>
             <a class="btn-floating halfway-fab waves-effect waves-light red"
               ><i class="material-icons">add</i></a

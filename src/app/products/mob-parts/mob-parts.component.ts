@@ -11,6 +11,7 @@ export class MobPartsComponent implements OnInit {
   ngOnInit(): void {}
   mobParts = [
     {
+      header: "Apple",
       id: 1001,
       name: "iPhone",
       description: "5.5 Screen for Moto g",
@@ -20,6 +21,7 @@ export class MobPartsComponent implements OnInit {
       country: "Australia"
     },
     {
+      header: "1+",
       id: 1002,
       name: "OnePlus",
       description: "5 Screen for Samsung",
@@ -29,8 +31,9 @@ export class MobPartsComponent implements OnInit {
       country: "Germany"
     },
     {
+      header: "Xiaomi",
       id: 1003,
-      name: "Redmi",
+      name: "Mi",
       description: "Key panel for Nokia",
       inStock: 0,
       prodNameColor: "white",
