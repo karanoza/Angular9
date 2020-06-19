@@ -1,3 +1,4 @@
+<h3 align="center">We have {{ calcProd() }} Products...!</h3>
 <div class="row">
   <ul>
     <li *ngFor="let mobPart of mobParts">
@@ -78,6 +79,7 @@
             <ng-template #outOfStock>
               Out Of Stock
             </ng-template>
+            <p>Price : {{ mobPart.price | currency: "INR" }}</p>
             <p align="center">
               <!-- <button>+</button> -->
               <a
