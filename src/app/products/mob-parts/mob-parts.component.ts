@@ -1,44 +1,59 @@
 import { Component, OnInit } from "@angular/core";
-
+import { MobParts } from "src/app/models/mob-parts";
+import { MOBPARTS } from "./mock-data";
 @Component({
   selector: "app-mob-parts",
   templateUrl: "./mob-parts.component.html",
-  styles: []
+  styles: [],
 })
 export class MobPartsComponent implements OnInit {
-  constructor() {}
+  name: string = "Alex";
+  // name = 1234;
 
-  ngOnInit(): void {}
-  mobParts = [
-    {
-      header: "Apple",
-      id: 1001,
-      name: "iPhone",
-      description: "5.5 Screen for Moto g",
-      inStock: 5,
-      prodNameColor: "white",
-      isOnline: false,
-      country: "Australia"
-    },
-    {
-      header: "1+",
-      id: 1002,
-      name: "OnePlus",
-      description: "5 Screen for Samsung",
-      inStock: 8,
-      prodNameColor: "white",
-      isOnline: false,
-      country: "Germany"
-    },
-    {
-      header: "Xiaomi",
-      id: 1003,
-      name: "Mi",
-      description: "Key panel for Nokia",
-      inStock: 0,
-      prodNameColor: "white",
-      isOnline: true,
-      country: "India"
+  ngOnInit(): void {
+    // component
+    this.mobParts = MOBPARTS;
+    console.log("1 ngOnInit Block...!");
+  }
+
+  constructor() {
+    console.log("2 Constructor Block...!");
+  } // class: DI -> obj init
+
+  // 8 lifecylehooks
+
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    this.mobParts = [];
+    console.log("3 ngOnDestroy Block...!");
+  }
+
+  ngAfterViewInit() {
+    console.log("4 ngAfterViewInit Block...!");
+  }
+
+  ngAfterContentInit() {
+    console.log("5 ngAfterContentInit Block...!");
+  }
+
+  mobParts: MobParts[]; // 10MB
+
+  calcProd() {
+    let tot = 0;
+
+    for (let mobPart of this.mobParts) {
+      tot = tot + mobPart.inStock;
     }
-  ];
+    return tot;
+  }
+
+  upQuantity(mobPart) {
+    // alert('We are in upQuantity');
+    if (mobPart.quantity < mobPart.inStock) mobPart.quantity++;
+  }
+
+  downQuantity(mobPart) {
+    if (mobPart.quantity != 0) mobPart.quantity--;
+  }
 }

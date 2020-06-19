@@ -5,17 +5,17 @@
         <h3 class="header">{{ mobPart.header }}</h3>
         <div class="card">
           <div class="card-image">
-            <div *ngIf="mobPart.name === 'iPhone'">
+            <div *ngIf="mobPart.header === 'iPhone'">
               <img
-                src="../../../assets/img/iphone2.jpg"
-                style="height:272px;"
+                src="../../../assets/img/{{ mobPart.prodImg }}"
+                style="height: 272px;"
               />
             </div>
-            <div *ngIf="mobPart.name === 'OnePlus'">
-              <img src="../../../assets/img/oneplus-7-pro.jpg" />
+            <div *ngIf="mobPart.header === 'OnePlus'">
+              <img src="../../../assets/img/{{ mobPart.prodImg }}" />
             </div>
-            <div *ngIf="mobPart.name === 'Mi'">
-              <img src="../../../assets/img/xiaomi.jpg" />
+            <div *ngIf="mobPart.header === 'Mi'">
+              <img src="../../../assets/img/{{ mobPart.prodImg }}" />
             </div>
             <span class="card-title">{{ mobPart.name }} </span>
             <a class="btn-floating halfway-fab waves-effect waves-light red"
@@ -23,7 +23,7 @@
             >
           </div>
           <div class="card-content">
-            <div [style.color]="mobPart.prodNameColor">
+            <div [style.color]="mobPart.prodColor">
               Mobile Part Name :
               <b
                 ><i>{{ mobPart.name }}</i></b
@@ -35,19 +35,19 @@
                 >Country:
                 <img
                   *ngSwitchCase="'Australia'"
-                  src="https://upload.wikipedia.org/wikipedia/en/thumb/b/b9/Flag_of_Australia.svg/23px-Flag_of_Australia.svg.png"
+                  src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b9/Flag_of_Australia.svg/23px-Flag_of_Australia.svg.png"
                   width="24"
                 />
 
                 <img
                   *ngSwitchCase="'Germany'"
-                  src="https://upload.wikipedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/23px-Flag_of_Germany.svg.png"
+                  src="https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/23px-Flag_of_Germany.svg.png"
                   width="24"
                 />
 
                 <img
                   *ngSwitchCase="'India'"
-                  src="https://upload.wikipedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/23px-Flag_of_India.svg.png"
+                  src="https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/23px-Flag_of_India.svg.png"
                   width="24"
                 />
 
@@ -78,6 +78,23 @@
             <ng-template #outOfStock>
               Out Of Stock
             </ng-template>
+            <p align="center">
+              <!-- <button>+</button> -->
+              <a
+                class="waves-effect waves-light btn"
+                (click)="downQuantity(mobPart)"
+                ><i class="material-icons">remove</i></a
+              >
+
+              {{ mobPart.quantity }}
+              <a
+                class="waves-effect waves-light btn"
+                (click)="upQuantity(mobPart)"
+                ><i class="material-icons">add</i></a
+              >
+
+              <!-- <button>-</button> -->
+            </p>
           </div>
         </div>
       </div>
