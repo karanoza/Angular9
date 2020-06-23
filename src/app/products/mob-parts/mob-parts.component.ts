@@ -56,4 +56,8 @@ export class MobPartsComponent implements OnInit {
   downQuantity(mobPart) {
     if (mobPart.quantity != 0) mobPart.quantity--;
   }
+
+  catchVal(event) {
+    console.log(event);
+  }
 }

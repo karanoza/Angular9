@@ -1,4 +1,9 @@
 <h3 align="center">We have {{ calcProd() }} Products...!</h3>
+<ul id="menu">
+  <li><a routerLink="/mobile/oneplus">OnePlus</a></li>
+  <li><a routerLink="/mobile/apple">Apple</a></li>
+</ul>
+<router-outlet></router-outlet>
 <div class="row">
   <ul>
     <li *ngFor="let mobPart of mobParts">
@@ -87,7 +92,11 @@
                 (click)="downQuantity(mobPart)"
                 ><i class="material-icons">remove</i></a
               >
-
+              <input
+                [value]="mobPart.quantity"
+                (input)="catchVal($event.target.value)"
+                [(ngModel)]="mobPart.quantity"
+              />
               {{ mobPart.quantity }}
               <a
                 class="waves-effect waves-light btn"
