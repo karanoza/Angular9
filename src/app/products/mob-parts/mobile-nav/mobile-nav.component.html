@@ -5,6 +5,17 @@
     <ul class="right hide-on-med-and-down">
       <!-- step 5: routerLink="mobile" -->
       <!-- <li><a href="mobile">Mobile href</a></li> -->
+      <li>
+        <mat-form-field>
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker" />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </li>
       <li><a routerLink="/mobile">Mobile Parts</a></li>
       <li><a routerLink="/mobile/oneplus">OnePlus</a></li>
       <li><a routerLink="/mobile/apple">Apple</a></li>
@@ -20,4 +31,5 @@
     >
   </div>
 </nav>
+
 <router-outlet></router-outlet>
