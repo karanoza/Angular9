@@ -1,3 +1,4 @@
+import { AllComponentModule } from "./all-component.module";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { Routes, RouterModule } from "@angular/router";
@@ -10,13 +11,16 @@ import { HomeComponent } from "../layout/home/home.component";
 import { OneplusComponent } from "../products/mob-parts/oneplus/oneplus.component";
 import { AppleComponent } from "../products/mob-parts/apple/apple.component";
 
+import { from } from "rxjs";
+import { MobileNavComponent } from "../products/mob-parts/mobile-nav/mobile-nav.component";
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
   { path: "home", component: HomeComponent },
   {
     path: "mobile",
-    component: MobPartsComponent,
+    component: MobileNavComponent,
     children: [
+      { path: "", component: MobPartsComponent },
       {
         path: "oneplus",
         component: OneplusComponent,
@@ -34,7 +38,7 @@ const appRoutes: Routes = [
 ];
 @NgModule({
   declarations: [],
-  imports: [CommonModule, RouterModule.forRoot(appRoutes)],
+  imports: [CommonModule, RouterModule.forRoot(appRoutes), AllComponentModule],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
