@@ -2,11 +2,7 @@ import { Component, OnInit } from "@angular/core";
 
 @Component({
   selector: "app-home",
-  template: `
-    <p>
-      <img src="../../../assets/img/welcome.jpg" />
-    </p>
-  `,
+  templateUrl: "./home.component.html",
   styles: [],
 })
 export class HomeComponent implements OnInit {

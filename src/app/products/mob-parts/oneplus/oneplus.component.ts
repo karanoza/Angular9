@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 
 @Component({
   selector: "app-oneplus",
-  template: `<h1>oneplus works!</h1> `,
+  templateUrl: "./oneplus.component.html",
   styles: [],
 })
 export class OneplusComponent implements OnInit {
