@@ -7,7 +7,11 @@
       <li><a routerLink="books">Books</a></li>
       <li><a routerLink="clothes">Clothes</a></li>
       <li><a routerLink="media">Media</a></li>
-
+      <li *ngIf="isLogin()"><a routerLink="dashboard">Dashboard</a></li>
+      <li *ngIf="!isLogin()"><a routerLink="login">Login</a></li>
+      <li *ngIf="isLogin()">
+        <a routerLink="home" (click)="logout()">LogOut</a>
+      </li>
       <li><a href="#">Navbar Link</a></li>
     </ul>
 

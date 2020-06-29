@@ -1,3 +1,4 @@
+import { AuthGuard } from "./../guards/auth.guard";
 import { AllComponentModule } from "./all-component.module";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
@@ -13,9 +14,17 @@ import { AppleComponent } from "../products/mob-parts/apple/apple.component";
 
 import { from } from "rxjs";
 import { MobileNavComponent } from "../products/mob-parts/mobile-nav/mobile-nav.component";
+import { LoginComponent } from "../login/login.component";
+
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
   { path: "home", component: HomeComponent },
+  { path: "login", component: LoginComponent },
+  {
+    path: "login",
+    canActivate: [AuthGuard],
+    component: LoginComponent,
+  },
   {
     path: "mobile",
     component: MobileNavComponent,

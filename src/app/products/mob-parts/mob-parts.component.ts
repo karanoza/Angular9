@@ -1,3 +1,4 @@
+import { DataService } from "./../../service/data.service";
 import { Component, OnInit } from "@angular/core";
 import { MobParts } from "src/app/models/mob-parts";
 import { MOBPARTS } from "./mock-data";
@@ -9,16 +10,26 @@ import { MOBPARTS } from "./mock-data";
 export class MobPartsComponent implements OnInit {
   name: string = "Alex";
   // name = 1234;
-
-  ngOnInit(): void {
-    // component
-    this.mobParts = MOBPARTS;
-    console.log("1 ngOnInit Block...!");
-  }
-
-  constructor() {
+  constructor(private dataService: DataService) {
     console.log("2 Constructor Block...!");
   } // class: DI -> obj init
+  ngOnInit(): void {
+    console.log("1 ngOnInit Block...!");
+
+    // 1. Data from 'mock.ts'
+    // this.mobParts = MOBPARTS;
+
+    // 2. Data from 'DB'
+    // let comServic = new ComServic();
+    // this.mobParts = comServic.getMobParts();
+
+    // 3. Data from 'Provider' using D.I.
+    // this.mobParts = this.dataService.getMobParts();
+    // component
+    // this.mobParts = MOBPARTS;
+    this.dataService.getMobParts().subscribe((res) => (this.mobParts = res));
+    console.log("1 ngOnInit Block...!");
+  }
 
   // 8 lifecylehooks
 

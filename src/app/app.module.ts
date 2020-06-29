@@ -2,6 +2,7 @@ import { AppRoutingModule } from "./modules/app-routing.module";
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
+import { HttpModule } from "@angular/http";
 
 import { AppComponent } from "./app.component";
 import { MatCheckboxModule } from "@angular/material/checkbox";
@@ -11,6 +12,10 @@ import { AllComponentModule } from "./modules/all-component.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MobileNavComponent } from "./products/mob-parts/mobile-nav/mobile-nav.component";
 import { AllMaterialModule } from "./modules/all-material.module";
+import { DataService } from "./service/data.service";
+import { LoginComponent } from "./login/login.component";
+import { DashboardComponent } from "./dashboard/dashboard.component";
+import { AuthGuard } from "./guards/auth.guard";
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +36,8 @@ import { AllMaterialModule } from "./modules/all-material.module";
     // OneplusComponent,
     // AppleComponent,
     MobileNavComponent,
+    LoginComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,8 +49,9 @@ import { AllMaterialModule } from "./modules/all-material.module";
     MatDatepickerModule,
     MatNativeDateModule,
     AllMaterialModule,
+    HttpModule,
   ],
   bootstrap: [AppComponent],
-  providers: [MatDatepickerModule, MatNativeDateModule],
+  providers: [AuthGuard, MatDatepickerModule, MatNativeDateModule, DataService],
 })
 export class AppModule {}
