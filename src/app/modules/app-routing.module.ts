@@ -15,16 +15,30 @@ import { AppleComponent } from "../products/mob-parts/apple/apple.component";
 import { from } from "rxjs";
 import { MobileNavComponent } from "../products/mob-parts/mobile-nav/mobile-nav.component";
 import { LoginComponent } from "../login/login.component";
+import { DashboardComponent } from "../dashboard/dashboard.component";
+
+import { AdminGuard } from "../guards/admin.guard";
+import { PaymentComponent } from "../dashboard/payment/payment.component";
+import { AdminComponent } from "../dashboard/admin/admin.component";
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
   { path: "home", component: HomeComponent },
   { path: "login", component: LoginComponent },
   {
-    path: "login",
+    path: "dashboard",
     canActivate: [AuthGuard],
-    component: LoginComponent,
+    component: DashboardComponent,
+    children: [
+      { path: "admin", component: AdminComponent },
+      {
+        path: "payment",
+        canActivate: [AdminGuard],
+        component: PaymentComponent,
+      },
+    ],
   },
+
   {
     path: "mobile",
     component: MobileNavComponent,
@@ -39,6 +53,10 @@ const appRoutes: Routes = [
         component: AppleComponent,
       },
     ],
+  },
+  {
+    path: "lazy",
+    loadChildren: "../lazymodules/lazy.module#LazyModule",
   },
   { path: "books", component: BooksComponent },
   { path: "clothes", component: ClothesComponent },

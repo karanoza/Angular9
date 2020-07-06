@@ -16,6 +16,11 @@ import { DataService } from "./service/data.service";
 import { LoginComponent } from "./login/login.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { AuthGuard } from "./guards/auth.guard";
+import { AdminComponent } from "./dashboard/admin/admin.component";
+import { PaymentComponent } from "./dashboard/payment/payment.component";
+import { AdminGuard } from "./guards/admin.guard";
+import { LazyModule } from "./lazymodules/lazy.module";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +43,8 @@ import { AuthGuard } from "./guards/auth.guard";
     MobileNavComponent,
     LoginComponent,
     DashboardComponent,
+    AdminComponent,
+    PaymentComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,8 +57,15 @@ import { AuthGuard } from "./guards/auth.guard";
     MatNativeDateModule,
     AllMaterialModule,
     HttpModule,
+    LazyModule,
   ],
   bootstrap: [AppComponent],
-  providers: [AuthGuard, MatDatepickerModule, MatNativeDateModule, DataService],
+  providers: [
+    AuthGuard,
+    AdminGuard,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    DataService,
+  ],
 })
 export class AppModule {}
