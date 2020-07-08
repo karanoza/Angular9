@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/ngKaran",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
