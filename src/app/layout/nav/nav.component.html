@@ -28,6 +28,12 @@
       <li><a routerLink="books">Books</a></li>
       <li><a routerLink="clothes">Clothes</a></li>
       <li><a routerLink="media">Media</a></li>
+      <li>
+        <a [routerLink]="[{ outlets: { insta: ['instagram'] } }]">Instagram</a>
+      </li>
+      <li>
+        <a [routerLink]="[{ outlets: { tweet: ['twitter'] } }]">Twitter</a>
+      </li>
       <li *ngIf="isLogin()"><a routerLink="dashboard">Dashboard</a></li>
       <li *ngIf="!isLogin()"><a routerLink="login">Login</a></li>
       <li *ngIf="isLogin()">
@@ -43,6 +49,14 @@
       <li><a routerLink="books">Books</a></li>
       <li><a routerLink="clothes">Clothes</a></li>
       <li><a routerLink="media">Media</a></li>
+      <li>
+        <a [routerLink]="[{ outlets: { outlet1: ['instagram'] } }]"
+          >Instagram</a
+        >
+      </li>
+      <li>
+        <a [routerLink]="[{ outlets: { outlet2: ['twitter'] } }]">Twitter</a>
+      </li>
       <li *ngIf="isLogin()"><a routerLink="dashboard">Dashboard</a></li>
       <li *ngIf="!isLogin()"><a routerLink="login">Login</a></li>
       <li *ngIf="isLogin()">

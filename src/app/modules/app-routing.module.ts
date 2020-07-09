@@ -20,6 +20,8 @@ import { DashboardComponent } from "../dashboard/dashboard.component";
 import { AdminGuard } from "../guards/admin.guard";
 import { PaymentComponent } from "../dashboard/payment/payment.component";
 import { AdminComponent } from "../dashboard/admin/admin.component";
+import { InstagramComponent } from "../products/media/instagram/instagram.component";
+import { TwitterComponent } from "../products/media/twitter/twitter.component";
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
@@ -61,6 +63,8 @@ const appRoutes: Routes = [
   { path: "books", component: BooksComponent },
   { path: "clothes", component: ClothesComponent },
   { path: "media", component: MediaComponent },
+  { path: "instagram", component: InstagramComponent, outlet: "insta" },
+  { path: "twitter", component: TwitterComponent, outlet: "tweet" },
   { path: "**", component: PageNotFoundComponent },
 ];
 @NgModule({

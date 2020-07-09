@@ -28,6 +28,8 @@ import { AdminGuard } from "./guards/admin.guard";
 import { LazyModule } from "./lazymodules/lazy.module";
 import { from } from "rxjs";
 import { HostDirective } from "./directives/host.directive";
+import { InstagramComponent } from './products/media/instagram/instagram.component';
+import { TwitterComponent } from './products/media/twitter/twitter.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { HostDirective } from "./directives/host.directive";
     AdminComponent,
     PaymentComponent,
     HostDirective,
+    InstagramComponent,
+    TwitterComponent,
   ],
   imports: [
     BrowserModule,
